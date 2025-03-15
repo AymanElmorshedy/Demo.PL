@@ -32,6 +32,26 @@ namespace Demo.BLL.Repository
             var Departments=dbContext.Departments.ToList();
             return Departments;
         }
+        public Department? GetById(int id)
+            =>dbContext.Departments.Find(id);
 
+        public void Delete(Department department)
+        {
+
+            dbContext.Departments.Remove(department);
+            dbContext.SaveChanges();
+        }
+
+        public void Add(Department department)
+        {
+            dbContext.Departments.Add(department);
+            dbContext.SaveChanges();
+        }
+        
+        public void Update(Department department)
+        {
+            dbContext.Departments.Update(department);
+            dbContext.SaveChanges();
+        }
     }
 }
