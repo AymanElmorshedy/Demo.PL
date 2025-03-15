@@ -1,3 +1,4 @@
+using Demo.BLL.Interfaces;
 using Demo.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,7 @@ namespace Demo.PL
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+            builder.Services.AddScoped<IDepartmentRepository,IDepartmentRepository>();
 
 
             var app = builder.Build();
